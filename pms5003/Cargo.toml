@@ -1,0 +1,14 @@
+[package]
+name = "pms5003"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+std = ["thiserror"]
+
+[dependencies]
+embedded-hal = "1.0.0-alpha.8"
+thiserror = { version = "1.0.31", optional = true }
+heapless = "0.7.13"
