@@ -1,14 +1,10 @@
-use std::str;
 use std::thread;
 use std::time::Duration;
 
-use embedded_hal::nb;
 use esp_idf_hal::gpio::InputPin;
 use esp_idf_hal::gpio::OutputPin;
 use esp_idf_hal::serial::Uart;
 use esp_idf_sys as _; // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
-
-use embedded_hal::serial::nb::{Read, Write};
 
 use esp_idf_hal::peripherals::Peripherals;
 use esp_idf_hal::prelude::*;
@@ -22,10 +18,9 @@ fn process_pms<UART: Uart, TX: OutputPin, RX: InputPin>(serial: &mut serial::Ser
     match PmsAQIData::read(serial).as_ref() {
         Ok(data) => {
             println!("Received PMS data: {:?}", data);
-        },
+        }
         Err(e) => {
-
-            //println!("Error reading PMS data: {:?}", e);
+            println!("Error reading PMS data: {:?}", e);
         }
     }
 }

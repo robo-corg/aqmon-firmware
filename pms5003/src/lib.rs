@@ -115,7 +115,7 @@ impl PmsAQIData {
             actual_checksum = actual_checksum.wrapping_add(*b as u16);
         }
 
-        let checksum = get_u16_from_be(&bytes, 15);
+        let checksum = get_u16_from_be(bytes, 15);
 
         if checksum != actual_checksum {
             return Err(ParseError::InvalidChecksum);
@@ -165,7 +165,7 @@ impl PmsAQIData {
 
 #[cfg(test)]
 mod tests {
-    use crate::{PmsAQIData, ParseError};
+    use crate::{ParseError, PmsAQIData};
 
     #[test]
     fn test_read_correct_frame() {
