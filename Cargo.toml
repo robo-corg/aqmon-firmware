@@ -1,3 +1,0 @@
-[workspace]
-members = ["aqmon-main", "pms5003"]
-default-members = ["pms5003"]
